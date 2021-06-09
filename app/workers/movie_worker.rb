@@ -4,10 +4,9 @@ class MovieWorker
   include Sidekiq::Worker
   sidekiq_options retry: false, queue: 'movies'
 
-  # def perform(*args)
+  # def perform
   #   100.times do
-  #     movie = Movie.new(title: Faker::Movie.title)
-  #     movie.save
+  #     Movie.create!(title: Faker::Movie.title)
   #   end
   # end
 
