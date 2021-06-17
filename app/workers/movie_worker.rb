@@ -12,7 +12,7 @@ class MovieWorker
   #   end
   # end
 
-  def perform(movies)
+  def perform
     title = Faker::Movie.title
     response = HTTParty.get("http://www.omdbapi.com/?apikey=#{ENV['OMDB_API_KEY']}&t=#{title}")
 
@@ -29,3 +29,4 @@ class MovieWorker
 
   # response = HTTParty.get("http://www.omdbapi.com/?apikey=#{API_KEY}&t=#{title}")
 
+  MovieWorker.perform_async

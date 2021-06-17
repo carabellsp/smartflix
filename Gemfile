@@ -27,6 +27,10 @@ gem 'sidekiq'
 gem 'faker'
 gem 'sidekiq-scheduler'
 gem 'httparty'
+gem 'rubocop'
+gem 'rubocop-performance'
+gem 'rubocop-rails'
+gem 'rubocop-rspec'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
