@@ -26,6 +26,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'sidekiq'
 gem 'faker'
 gem 'sidekiq-scheduler'
+gem 'httparty'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
