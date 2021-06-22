@@ -12,7 +12,7 @@ class MovieWorker
       response = HTTParty.get("http://www.omdbapi.com/?apikey=#{ENV['OMDB_API_KEY']}&t=#{title}")
 
       movie = Movie.create!(title: response['Title'], year: response['Year'], released: response['Released'],
-                            genre: response['Genre'], director: response['Director'], plot: response['Plot'],
+                            genre: response['Genre'].split(', '), director: response['Director'], plot: response['Plot'],
                             language: response['Language'], runtime: response['Runtime'])
 
       response['Actors'].split(', ').each do |actor_name|
