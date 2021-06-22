@@ -44,7 +44,7 @@ group :development, :test do
   gem 'pry', '~> 0.13.1'
 end
 
-group :development do
+group :development, :test do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 4.1.0'
   # Display performance information such as SQL time and flame graphs for each request in your browser.
@@ -53,6 +53,8 @@ group :development do
   gem 'listen', '~> 3.3'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem 'rspec-rails', '~> 5.0.0'
+  gem 'vcr', '~> 6.0.0'
 end
 
 group :test do
@@ -61,7 +63,9 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
-  gem 'rspec-rails', '~> 5.0.0'
+  gem 'database_cleaner-active_record'
+  gem 'factory_bot', '~> 6.2.0'
+  gem 'webmock', '~> 2.1.0'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
