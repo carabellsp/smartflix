@@ -29,7 +29,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="PROVIDED" name="builder (v3.2.4, RVM: ruby-2.7.1 [global]) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="bundler (v2.1.4, RVM: ruby-2.7.1 [global]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="bundler (v2.2.17, RVM: ruby-2.7.1 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="crass (v1.0.6, RVM: ruby-2.7.1 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="method_source (v1.0.0, RVM: ruby-2.7.1 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rack (v2.2.3, RVM: ruby-2.7.1 [global]) [gem]" level="application" />

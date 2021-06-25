@@ -1,4 +1,3 @@
-# require 'faker'
 
 class MovieWorker
   include Sidekiq::Worker
@@ -31,4 +30,4 @@ class MovieWorker
 
   # response = HTTParty.get("http://www.omdbapi.com/?apikey=#{API_KEY}&t=#{title}")
 
-  MovieWorker.perform_async
+  # MovieWorker.perform_async
