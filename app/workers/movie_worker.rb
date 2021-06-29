@@ -3,6 +3,7 @@
 class MovieWorker
   include Sidekiq::Worker
   sidekiq_options retry: false, queue: 'movies'
+  attr_reader :response
 
   def perform
     title = Faker::Movie.title
@@ -11,13 +12,18 @@ class MovieWorker
     # because we are using Faker, we do not want to generate multiple instances of the same movie
 
     base_uri = "http://www.omdbapi.com/?apikey=#{ENV['OMDB_API_KEY']}"
-    response = HTTParty.get("#{base_uri}&t=#{title}")
+    @response = HTTParty.get("#{base_uri}&t=#{title}")
 
-    movie = Movie.create!(title: response['Title'], year: response['Year'], released: response['Released'],
-                          genre: response['Genre'].split(', '), director: response['Director'], plot: response['Plot'],
-                          language: response['Language'], runtime: response['Runtime'])
+    movie = Movie.create!(title: movie_attributes[:title],
+                          year: movie_attributes[:year].to_i,
+                          released: movie_attributes[:released].to_datetime,
+                          genre: movie_attributes[:genre].split(', '),
+                          director: movie_attributes[:director],
+                          plot: movie_attributes[:plot],
+                          language: movie_attributes[:language],
+                          runtime: movie_attributes[:runtime])
 
-    response['Actors'].split(', ').each do |actor_name|
+    movie_attributes['Actors'].split(', ').each do |actor_name|
       ActiveRecord::Base.transaction do
         # wrapped the create methods in a transaction to ensure it rolls back if not fully completing
         actor = Actor.find_or_create_by(full_name: actor_name) do |actor|
@@ -28,6 +34,10 @@ class MovieWorker
         actor.credits.create!(movie: movie)
       end
     end
+  end
+
+  def movie_attributes
+    @response.transform_keys! { |k| k.downcase.to_sym }
   end
 end
 
