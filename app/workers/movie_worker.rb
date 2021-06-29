@@ -23,7 +23,7 @@ class MovieWorker
                           language: movie_attributes[:language],
                           runtime: movie_attributes[:runtime])
 
-    movie_attributes['Actors'].split(', ').each do |actor_name|
+    movie_attributes[:actors].split(', ').each do |actor_name|
       ActiveRecord::Base.transaction do
         # wrapped the create methods in a transaction to ensure it rolls back if not fully completing
         actor = Actor.find_or_create_by(full_name: actor_name) do |actor|
