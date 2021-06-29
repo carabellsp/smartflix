@@ -8,11 +8,12 @@ class MovieWorker
       return if Movie.find_by(title: title)
       # because we are using Faker, we do not want to generate multiple instances of the same movie
 
-      response = HTTParty.get("http://www.omdbapi.com/?apikey=#{ENV['OMDB_API_KEY']}&t=#{title}")
+      base_uri = "http://www.omdbapi.com/?apikey=#{ENV['OMDB_API_KEY']}"
+      response = HTTParty.get("#{base_uri}&t=#{title}")
 
       movie = Movie.create!(title: response['Title'], year: response['Year'], released: response['Released'],
-                            genre: response['Genre'].split(', '), director: response['Director'], plot: response['Plot'],
-                            language: response['Language'], runtime: response['Runtime'])
+      genre: response['Genre'].split(', '), director: response['Director'], plot: response['Plot'],
+      language: response['Language'], runtime: response['Runtime'])
 
       response['Actors'].split(', ').each do |actor_name|
         ActiveRecord::Base.transaction do

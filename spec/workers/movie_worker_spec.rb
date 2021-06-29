@@ -6,11 +6,16 @@ RSpec.describe MovieWorker, :vcr do
 
   Sidekiq::Testing.inline!
 
-  let(:title) { 'Shrek' }
-
   it 'adds a movie', :vcr, :aggregate_failures do
     expect { subject }.to change(Movie, :count).by 1
-
-    # expect(Movie.last.title).to eq(title)
   end
+
+  # describe '#perform', :vcr do
+  #   let(:movie) { Movie.new }
+  #   let(:title) { 'Scarface' }
+  #
+  #   it 'should return the correct movie' do
+  #     expect(movie.title).to eq('Scarface')
+  #   end
+  # end
 end
