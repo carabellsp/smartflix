@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 require 'sidekiq/testing'
 
@@ -13,6 +15,7 @@ RSpec.describe MovieWorker, :vcr do
   # describe '#perform', :vcr do
   #   let(:movie) { Movie.new }
   #   let(:title) { 'Scarface' }
+  #   subject { described_class.perform }
   #
   #   it 'should return the correct movie' do
   #     expect(movie.title).to eq('Scarface')

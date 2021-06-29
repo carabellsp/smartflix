@@ -1,5 +1,6 @@
-class MoviesController < ApplicationController
+# frozen_string_literal: true
 
+class MoviesController < ApplicationController
   def show
     title = params[:title]
 
@@ -9,7 +10,7 @@ class MoviesController < ApplicationController
       render json: @movie
     else
       add_movie(title)
-      render json: {:error => "We do not yet have this movie :("}.to_json,
+      render json: { error: 'We do not yet have this movie :(' }.to_json,
              status: 404
     end
   end

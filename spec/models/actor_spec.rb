@@ -1,11 +1,13 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.describe Actor, :type => :model do
-
-  subject { described_class.new(full_name: 'Cara Bell',
-                                first_name: 'Cara',
-                                last_name: 'Bell')
-          }
+RSpec.describe Actor, type: :model do
+  subject do
+    described_class.new(full_name: 'Cara Bell',
+                        first_name: 'Cara',
+                        last_name: 'Bell')
+  end
 
   # let(:actor_with_values) { described_class.new(full_name: 'Cara Bell', first_name: 'Cara', last_name: 'Bell') }
   # let(:actor_without_values) { described_class.new(full_name: nil) }
@@ -33,4 +35,3 @@ RSpec.describe Actor, :type => :model do
     expect(subject).to_not be_valid
   end
 end
-
