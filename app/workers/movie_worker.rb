@@ -14,7 +14,7 @@ class MovieWorker
 
     movie = Movie.create!(title: movie_attributes[:title],
                           year: movie_attributes[:year].to_i,
-                          released: movie_attributes[:released].to_datetime,
+                          released: movie_attributes[:released],
                           genre: movie_attributes[:genre].split(', '),
                           director: movie_attributes[:director],
                           plot: movie_attributes[:plot],
