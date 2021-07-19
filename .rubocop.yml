@@ -1,3 +1,5 @@
+require: rubocop-rspec
+
 AllCops:
   Exclude:
     - 'config/**/*'
@@ -52,10 +54,14 @@ Layout/LineLength:
   Exclude:
     - 'spec/**/*'
 
-#RSpec/ContextWording:
-#  Prefixes:
-#    - when
-#    - with
-#    - without
-#    - if
-#    - and
+RSpec/ContextWording:
+  Prefixes:
+    - when
+    - with
+    - without
+    - if
+    - and
+
+  RSpec/ExampleLength:
+    Exclude:
+      - 'spec/workers/movie_worker_spec.rb'

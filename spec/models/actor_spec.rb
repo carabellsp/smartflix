@@ -22,16 +22,16 @@ RSpec.describe Actor, type: :model do
 
   it 'is not valid without a full name' do
     subject.full_name = nil
-    expect(subject).to_not be_valid
+    expect(subject).not_to be_valid
   end
 
   it 'is not valid without a first name' do
     subject.first_name = nil
-    expect(subject).to_not be_valid
+    expect(subject).not_to be_valid
   end
 
   it 'is not valid without a last name' do
     subject.last_name = nil
-    expect(subject).to_not be_valid
+    expect(subject).not_to be_valid
   end
 end
