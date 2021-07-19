@@ -7,6 +7,7 @@ class MovieWorker
 
   def perform(title)
     return if Movie.find_by(title: title)
+
     # we do not want to generate multiple instances of the same movie
 
     base_uri = "http://www.omdbapi.com/?apikey=#{ENV['OMDB_API_KEY']}"
@@ -24,12 +25,12 @@ class MovieWorker
     movie_attributes[:actors].split(', ').each do |actor_name|
       ActiveRecord::Base.transaction do
         # wrapped the create methods in a transaction to ensure it rolls back if not fully completing
-        actor = Actor.find_or_create_by(full_name: actor_name) do |actor|
+        new_actor = Actor.find_or_create_by(full_name: actor_name) do |actor|
           # use this find_or_create_by method to avoid duplicate actor creation
           actor.first_name = actor_name.split[0]
           actor.last_name = actor_name.split[-1]
         end
-        actor.credits.create!(movie: movie)
+        new_actor.credits.create!(movie: movie)
       end
     end
   end

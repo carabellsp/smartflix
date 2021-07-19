@@ -21,5 +21,6 @@ class MoviesController < ApplicationController
 
   def add_movie(title)
     MovieWorker.perform_async(title)
+    # MovieWorker.new.perform(title) ??
   end
 end
