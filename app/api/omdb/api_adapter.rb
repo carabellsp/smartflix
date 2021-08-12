@@ -8,7 +8,13 @@ module Omdb
     def fetch_data(title = nil)
       title = movie_title if title.nil?
       base_uri = "http://www.omdbapi.com/?apikey=#{ENV['OMDB_API_KEY']}"
-      HTTParty.get("#{base_uri}&t=#{title}")
+      response = HTTParty.get("#{base_uri}&t=#{title}")
+
+      if response.body.include?('False')
+        Rails.logger.warn "This movie - #{title} - has returned an error in the response"
+      else
+        response
+      end
     end
 
     def movie_title
