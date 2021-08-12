@@ -28,3 +28,6 @@ Things you may want to cover:
 ### STILL TO DO:
 - extract movie_worker logic to unit? *ADD TESTS*
 - specs for `api_adapter.rb`
+- secure API key
+- set up different API key for test env
+- Write tests for missing part of the flow & check using `simplecov`
