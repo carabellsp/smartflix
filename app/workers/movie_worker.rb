@@ -13,14 +13,7 @@ class MovieWorker
     base_uri = "http://www.omdbapi.com/?apikey=#{ENV['OMDB_API_KEY']}"
     @response = HTTParty.get("#{base_uri}&t=#{title}")
 
-    movie = Movie.create!(title: movie_attributes[:title],
-                          year: movie_attributes[:year].to_i,
-                          released: movie_attributes[:released],
-                          genre: movie_attributes[:genre],
-                          director: movie_attributes[:director],
-                          plot: movie_attributes[:plot],
-                          language: movie_attributes[:language],
-                          runtime: movie_attributes[:runtime])
+    movie = create_movie
 
     movie_attributes[:actors].split(', ').each do |actor_name|
       ActiveRecord::Base.transaction do
@@ -35,6 +28,19 @@ class MovieWorker
     end
   end
 
+  private
+
+  def create_movie
+    Movie.create!(title: movie_attributes[:title],
+                  year: movie_attributes[:year].to_i,
+                  released: movie_attributes[:released],
+                  genre: movie_attributes[:genre],
+                  director: movie_attributes[:director],
+                  plot: movie_attributes[:plot],
+                  language: movie_attributes[:language],
+                  runtime: movie_attributes[:runtime])
+  end
+
   def movie_attributes
     @response.transform_keys! { |k| k.downcase.to_sym }
   end
@@ -44,3 +50,4 @@ end
 
 # MovieWorker.perform_async
 # MovieWorker.new.perform(title)
+# remember to be running `bundle exec sidekiq`
