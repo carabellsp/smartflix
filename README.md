@@ -34,3 +34,4 @@ Things you may want to cover:
 - Add update movie logic, maybe in a unit? 
 - Update existing movies at 7am daily (sidekiq worker for scheduling, calling the update_movie unit)
 - `Destroy movie` unit which removes instances if they haven't been updated in 48 hours
+- add error message for when movie already exists
