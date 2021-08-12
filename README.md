@@ -22,3 +22,9 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+--------
+
+### STILL TO DO:
+- extract movie_worker logic to unit?
+- specs for `api_adapter.rb`
