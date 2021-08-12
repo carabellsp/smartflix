@@ -1,17 +1,17 @@
 # frozen_string_literal: true
+require_relative '../api/omdb/api_adapter.rb'
 
 class MovieWorker
   include Sidekiq::Worker
   sidekiq_options retry: false, queue: 'movies'
-  attr_reader :response
+  attr_reader :response, :omdb_adapter
 
   def perform(title)
     return if Movie.find_by(title: title)
 
     # we do not want to generate multiple instances of the same movie
 
-    base_uri = "http://www.omdbapi.com/?apikey=#{ENV['OMDB_API_KEY']}"
-    @response = HTTParty.get("#{base_uri}&t=#{title}")
+    @response = omdb_adapter.fetch_data(title)
 
     movie = create_movie
 
@@ -29,6 +29,10 @@ class MovieWorker
   end
 
   private
+
+  def omdb_adapter
+    @omdb_adapter ||= Omdb::ApiAdapter.new
+  end
 
   def create_movie
     Movie.create!(title: movie_attributes[:title],
