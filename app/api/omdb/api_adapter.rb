@@ -3,6 +3,7 @@
 require 'faker'
 require 'httparty'
 
+# Service to parse response from OMDB Api
 module Omdb
   class ApiAdapter
     def fetch_data(title = nil)
@@ -18,7 +19,7 @@ module Omdb
     end
 
     def movie_title
-     Faker::Movie.title
+      Faker::Movie.title
     end
   end
 end

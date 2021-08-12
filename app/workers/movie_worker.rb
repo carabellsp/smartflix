@@ -1,5 +1,6 @@
 # frozen_string_literal: true
-require_relative '../api/omdb/api_adapter.rb'
+
+require_relative '../api/omdb/api_adapter'
 
 class MovieWorker
   include Sidekiq::Worker
