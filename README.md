@@ -26,5 +26,5 @@ Things you may want to cover:
 --------
 
 ### STILL TO DO:
-- extract movie_worker logic to unit?
+- extract movie_worker logic to unit? *ADD TESTS*
 - specs for `api_adapter.rb`

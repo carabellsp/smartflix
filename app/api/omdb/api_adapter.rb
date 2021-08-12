@@ -11,7 +11,7 @@ module Omdb
       response = HTTParty.get("#{base_uri}&t=#{title}")
 
       if response.body.include?('False')
-        Rails.logger.warn "This movie - #{title} - has returned an error in the response"
+        Rails.logger.warn "This movie '#{title}' requested at #{Time.current} has returned an error in the response"
       else
         response
       end
