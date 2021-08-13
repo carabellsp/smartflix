@@ -13,7 +13,7 @@ module Omdb
       response = HTTParty.get(uri)
 
       if response.body.include?('False')
-        Rails.logger.warn "This movie '#{title}' requested at #{Time.current} has returned an error in the response"
+        log_error
       else
         response
       end
@@ -21,6 +21,10 @@ module Omdb
 
     def movie_title
       Faker::Movie.title
+    end
+
+    def log_error
+      Rails.logger.warn "This movie '#{title}' requested at #{Time.current} has returned an error in the response"
     end
   end
 end
