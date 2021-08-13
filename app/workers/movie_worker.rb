@@ -12,7 +12,7 @@ class MovieWorker
 
     # we do not want to generate multiple instances of the same movie
 
-    @response = omdb_adapter.fetch_data(title)
+    @response = omdb_adapter.fetch_response(title)
 
     movie = create_movie
 
