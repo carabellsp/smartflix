@@ -1,8 +1,9 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Omdb::ApiAdapter do
   describe '#fetch_response' do
-
     context 'when title is provided' do
       let(:title) { 'Home Alone' }
 
@@ -26,7 +27,6 @@ RSpec.describe Omdb::ApiAdapter do
           expect(response).to be_a_kind_of HTTParty::Response
           expect(response['Title']).to eq('Batman')
         end
-
       end
     end
   end
