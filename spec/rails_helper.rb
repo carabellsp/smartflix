@@ -41,6 +41,9 @@ RSpec.configure do |config|
   # instead of true.
   config.use_transactional_fixtures = false # changed to false to work better with factory bot
 
+  # include time-helpers to test time stamp in rails logger warning
+  config.include ActiveSupport::Testing::TimeHelpers
+
   # You can uncomment this line to turn off ActiveRecord support entirely.
   # config.use_active_record = false
 
