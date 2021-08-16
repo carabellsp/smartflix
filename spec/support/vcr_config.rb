@@ -7,4 +7,5 @@ VCR.configure do |config|
   config.configure_rspec_metadata!
   config.hook_into :webmock # connects vcr w webmock to stub requests
   config.ignore_localhost = true # ensures VCR ignores requests to localhost
+  config.filter_sensitive_data('apikey') { ENV['OMDB_KEY'] }
 end
