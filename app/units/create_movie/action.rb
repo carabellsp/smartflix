@@ -20,7 +20,7 @@ module CreateMovie
     end
 
     def log_error
-      Rails.logger.warn "This movie '#{title}' requested at #{Time.current} has returned an error in the response"
+      Rails.logger.warn "The request at #{Time.current} has returned an error in the response"
     end
 
     def transform_movie_attributes(response)
