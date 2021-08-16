@@ -28,7 +28,7 @@ module CreateMovie
       response.transform_keys! { |k| k.downcase.to_sym }
     end
 
-    def create_movie(movie_attributes)
+    def create_movie(movie_attributes) # is it bad to have a method with same name as module??
       Movie.create!(title: movie_attributes[:title],
                     year: movie_attributes[:year].to_i,
                     released: movie_attributes[:released],
