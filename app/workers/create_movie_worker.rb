@@ -20,8 +20,7 @@ class CreateMovieWorker
   end
 end
 
-# response = HTTParty.get("http://www.omdbapi.com/?apikey=#{API_KEY}&t=#{title}")
-
+# How to manually execute worker:
 # CreateMovieWorker.perform_async
 # CreateMovieWorker.new.perform(title)
 # remember to be running `bundle exec sidekiq`
