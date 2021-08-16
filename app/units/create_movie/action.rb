@@ -4,20 +4,20 @@ module CreateMovie
   class Action
     def call(response)
 
-      if response_invalid?(response)
-        log_error
-      else
+      if response_valid?(response)
         movie_attributes = transform_movie_attributes(response.parsed_response)
 
         create_movie(movie_attributes)
         create_actors(movie_attributes)
+      else
+        log_error
       end
     end
 
     private
 
-    def response_invalid?(response)
-      response.body.include?('False')
+    def response_valid?(response)
+      !response.body.include?('False')
     end
 
     def log_error
