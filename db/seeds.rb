@@ -7,4 +7,4 @@
 #   movies << {title: Faker::Movie.title}
 # end
 #
-# MovieWorker.perform_async(movies)
+# CreateMovieWorker.perform_async(movies)

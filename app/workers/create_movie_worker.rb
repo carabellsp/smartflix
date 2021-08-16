@@ -2,7 +2,7 @@
 
 require_relative '../api/omdb/api_adapter'
 
-class MovieWorker
+class CreateMovieWorker
   include Sidekiq::Worker
 
   sidekiq_options retry: false, queue: 'movies'
@@ -25,6 +25,6 @@ end
 
 # response = HTTParty.get("http://www.omdbapi.com/?apikey=#{API_KEY}&t=#{title}")
 
-# MovieWorker.perform_async
-# MovieWorker.new.perform(title)
+# CreateMovieWorker.perform_async
+# CreateMovieWorker.new.perform(title)
 # remember to be running `bundle exec sidekiq`

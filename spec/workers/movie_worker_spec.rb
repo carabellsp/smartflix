@@ -3,7 +3,7 @@
 require 'rails_helper'
 require 'sidekiq/testing'
 
-RSpec.describe MovieWorker, :vcr do
+RSpec.describe CreateMovieWorker, :vcr do
   subject { described_class.new.perform(movie) }
 
   let(:movie) { 'Black Panther' }
