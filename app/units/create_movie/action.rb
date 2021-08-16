@@ -40,7 +40,7 @@ module CreateMovie
     end
 
     def create_actors(movie_attributes)
-      movie = create_movie(movie_attributes)
+      movie = Movie.find_by(title: movie_attributes[:title])
       movie_attributes[:actors].split(', ').each do |actor_name|
         ActiveRecord::Base.transaction do
           # wrapped the create methods in a transaction to ensure it rolls back if not fully completing

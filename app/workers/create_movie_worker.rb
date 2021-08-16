@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require_relative '../api/omdb/api_adapter'
-
 class CreateMovieWorker
   include Sidekiq::Worker
 
@@ -13,7 +11,6 @@ class CreateMovieWorker
 
     response = omdb_adapter.fetch_response(title)
     CreateMovie::EntryPoint.new(response)
-
   end
 
   private
