@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module CreateMovie
   class EntryPoint
     def initialize(response)

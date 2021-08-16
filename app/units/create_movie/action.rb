@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module CreateMovie
   class Action
     def call(response)
