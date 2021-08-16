@@ -37,3 +37,4 @@ Things you may want to cover:
 - add error message for when movie already exists
 - write README
 - finish building movie factory
+- Correct rubocop errors
