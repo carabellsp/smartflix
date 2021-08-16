@@ -26,5 +26,4 @@ RSpec.describe CreateMovie::EntryPoint do
   it 'adds a new movie record to the db' do
     expect { subject }.to change(Movie, :count).by(1)
   end
-
 end

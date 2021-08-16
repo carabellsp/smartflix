@@ -7,7 +7,7 @@ class CreateMovieWorker
   attr_reader :omdb_adapter
 
   def perform(title)
-    return if Movie.find_by(title: title)  # we do not want to generate multiple instances of the same movie
+    return if Movie.find_by(title: title) # we do not want to generate multiple instances of the same movie
 
     response = omdb_adapter.fetch_response(title)
     CreateMovie::EntryPoint.new(response)

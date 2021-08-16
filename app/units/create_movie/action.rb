@@ -3,7 +3,6 @@
 module CreateMovie
   class Action
     def call(response)
-
       if response_valid?(response)
         movie_attributes = transform_movie_attributes(response.parsed_response)
 
@@ -28,7 +27,8 @@ module CreateMovie
       response.transform_keys! { |k| k.downcase.to_sym }
     end
 
-    def create_movie(movie_attributes) # is it bad to have a method with same name as module??
+    # is it bad to have a method with same name as module??
+    def create_movie(movie_attributes)
       Movie.create!(title: movie_attributes[:title],
                     year: movie_attributes[:year].to_i,
                     released: movie_attributes[:released],
@@ -53,6 +53,5 @@ module CreateMovie
         end
       end
     end
-
   end
 end
