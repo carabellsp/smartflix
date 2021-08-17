@@ -31,9 +31,8 @@ Things you may want to cover:
 - secure API key (think this is done by placing it in env file and having `.env` in `gitignore`?)
 - set up different API key for test env - not sure how to do this ?? 
 - Write tests for missing part of the flow & check using `simplecov`
-  
-- Add update movie tests & schedule update using sidekiq scheduler
-- Update existing movies at 7am daily (sidekiq worker for scheduling, calling the update_movie unit)
+
+- Test failing in `spec/units/update_movie/action_spec.rb` - timing issue?
   
 - `Destroy movie` unit which removes instances if they haven't been updated in 48 hours
 - add error message for when movie already exists
