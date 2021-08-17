@@ -6,8 +6,7 @@ module CreateMovie
       if response_valid?(response)
         movie_attributes = transform_movie_attributes(response.parsed_response)
 
-        create_movie(movie_attributes)
-        # create_actors(movie_attributes)
+        create_movie(movie_attributes).tap { |movie| create_actors(movie, movie_attributes) }
       else
         log_error
       end
@@ -39,8 +38,7 @@ module CreateMovie
                     runtime: movie_attributes[:runtime])
     end
 
-    def create_actors(movie_attributes)
-      movie = Movie.find_by(title: movie_attributes[:title])
+    def create_actors(movie, movie_attributes)
       movie_attributes[:actors].split(', ').each do |actor_name|
         ActiveRecord::Base.transaction do
           # wrapped the create methods in a transaction to ensure it rolls back if not fully completing
