@@ -37,4 +37,3 @@ RSpec.describe UpdateMovieWorker do
     subject.perform
   end
 end
-

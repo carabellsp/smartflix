@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module UpdateMovieSharedExamples
   RSpec.shared_examples 'successfully updates movie object' do
     it 'updates the movie object' do
@@ -5,4 +7,3 @@ module UpdateMovieSharedExamples
     end
   end
 end
-
