@@ -26,7 +26,7 @@ Things you may want to cover:
 --------
 
 ### STILL TO DO:
-- Finish `action_spec.rb` tests & use time helpers to test Rails warning
+- Fix `create_movie_worker_spec.rb`
 - specs for `api_adapter.rb` - [written but need to get working!! config issues?!]
 - secure API key (think this is done by placing it in env file and having `.env` in `gitignore`?)
 - set up different API key for test env - not sure how to do this ?? 
