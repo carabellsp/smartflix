@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
+# Sidekiq Worker to Create Movie Instances
 class CreateMovieWorker
   include Sidekiq::Worker
 
   sidekiq_options retry: false, queue: 'movies'
-  attr_reader :omdb_adapter
 
   def perform(title)
     return if Movie.find_by(title: title) # we do not want to generate multiple instances of the same movie

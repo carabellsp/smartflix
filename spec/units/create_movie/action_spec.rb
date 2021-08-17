@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe CreateMovie::Action do
-  subject { described_class.new.call(response) }
+  subject(:create_movie_action) { described_class.new.call(response) }
 
   let(:response) { instance_double(HTTParty::Response, body: response_body) }
 
@@ -25,11 +25,11 @@ RSpec.describe CreateMovie::Action do
 
   context 'when response is valid' do
     it 'adds the movie to the db' do
-      expect { subject }.to change(Movie, :count).by(1)
+      expect { create_movie_action }.to change(Movie, :count).by(1)
     end
 
     it 'adds the movie with the correct attributes' do
-      expect(subject).to have_attributes(title: 'The Notebook', year: 2004, released: 'Fri, 25 Jun 2004'.to_datetime, genre: 'Drama, Romance', language: 'English', runtime: 123 )
+      expect(create_movie_action).to have_attributes(title: 'The Notebook', year: 2004, released: 'Fri, 25 Jun 2004'.to_datetime, genre: 'Drama, Romance', language: 'English', runtime: 123)
     end
   end
 
@@ -37,13 +37,18 @@ RSpec.describe CreateMovie::Action do
     let(:response_body) { '{"Response":"False"}' }
 
     it 'does not create a new movie record' do
-      expect { subject }.to_not change(Movie, :count)
+      expect { create_movie_action }.not_to change(Movie, :count)
     end
 
     it 'logs a Rails warning with timestamp' do
       travel_to Time.zone.local(2021)
-      expect(Rails.logger).to receive(:warn).with("The request at 2021-01-01 00:00:00 UTC has returned an error in the response")
-      subject
+      expect(Rails.logger).to receive(:warn).with('The request at 2021-01-01 00:00:00 UTC has returned an error in the response')
+      create_movie_action
     end
   end
 end
+
+# ask G about RSpec/NamedSubject
+# good: subject(:create_movie_action)
+# bad: subject
+# Why??

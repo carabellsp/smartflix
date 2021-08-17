@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module CreateMovie
+  # Service to create movie instance from OMDB response
   class Action
     def call(response)
       if response_valid?(response)
