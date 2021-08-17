@@ -7,3 +7,6 @@
   update_movie_worker:
     cron: '00 07 * * *'
     class: UpdateMovieWorker
+  delete_movie_worker:
+    cron: '00 18 * * *'
+    class: DeleteMovieWorker
