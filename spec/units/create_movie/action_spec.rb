@@ -28,9 +28,9 @@ RSpec.describe CreateMovie::Action do
       expect { subject }.to change(Movie, :count).by(1)
     end
 
-    # it 'adds the movie with the correct attributes' do
-    #   expect(subject).to have_attributes(title: 'The Notebook')
-    # end
+    it 'adds the movie with the correct attributes' do
+      expect(subject).to have_attributes(title: 'The Notebook', year: 2004, released: 'Fri, 25 Jun 2004'.to_datetime, genre: 'Drama, Romance', language: 'English', runtime: 123 )
+    end
   end
 
   context 'when response is invalid' do

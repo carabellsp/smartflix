@@ -7,7 +7,7 @@ module CreateMovie
         movie_attributes = transform_movie_attributes(response.parsed_response)
 
         create_movie(movie_attributes)
-        create_actors(movie_attributes)
+        # create_actors(movie_attributes)
       else
         log_error
       end
