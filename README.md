@@ -26,7 +26,8 @@ Things you may want to cover:
 --------
 
 ### STILL TO DO:
-- Fix `create_movie_worker_spec.rb`
+- Fix `create_movie_worker_spec.rb` and fatten out tests
+  -> test for calling entry point etc
 - Test failing in `spec/units/update_movie/action_spec.rb` - timing issue?
 - specs for `api_adapter.rb` - [written but need to get working!! config issues?!]
   

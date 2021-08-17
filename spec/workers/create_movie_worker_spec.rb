@@ -11,7 +11,7 @@ RSpec.describe CreateMovieWorker, :vcr do
   Sidekiq::Testing.inline!
 
   it 'adds a movie', :vcr, :aggregate_failures do
-    expect { subject }.to change(Movie, :count).by 1
+    expect { subject }.to change(Movie, :count).by(1)
   end
 
   # it 'sets the correct attributes' do
