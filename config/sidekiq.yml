@@ -3,3 +3,7 @@
 :queues:
   - default
   - movies
+:schedule:
+  update_movie_worker:
+    cron: '00 07 * * *'
+    class: UpdateMovieWorker
