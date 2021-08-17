@@ -3,6 +3,11 @@
 module CreateMovie
   # Service to create movie instance from OMDB response
   class Action
+
+    EXCLUDED_ATTRIBUTES = %i[actors rated awards poster country ratings writer type dvd boxoffice production
+                             metascore response imdbrating imdbvotes imdbid website].freeze
+    private_constant :EXCLUDED_ATTRIBUTES
+
     def call(response)
       if response_valid?(response)
         movie_attributes = transform_movie_attributes(response.parsed_response)
@@ -24,7 +29,8 @@ module CreateMovie
     end
 
     def transform_movie_attributes(response)
-      response.transform_keys! { |k| k.downcase.to_sym }
+      transformed_response = response.transform_keys! { |k| k.downcase.to_sym }
+      transformed_response.except!(*EXCLUDED_ATTRIBUTES)
     end
 
     # is it bad to have a method with same name as module??
