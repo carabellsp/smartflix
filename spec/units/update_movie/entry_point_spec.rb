@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
+require_relative 'update_movie_shared_examples'
 
 RSpec.describe UpdateMovie::EntryPoint do
   subject { described_class.new(response, movie) }
@@ -25,7 +26,5 @@ RSpec.describe UpdateMovie::EntryPoint do
     allow(response).to receive(:parsed_response).and_return(response_body)
   end
 
-  it 'updates the movie' do
-    expect { subject }.to change(movie, :updated_at)
-  end
+  include_examples 'successfully updates movie object'
 end

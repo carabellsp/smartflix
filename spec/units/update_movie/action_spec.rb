@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
+require_relative 'update_movie_shared_examples'
 
 RSpec.describe UpdateMovie::Action do
   subject { described_class.new.call(response, movie) }
@@ -20,9 +21,10 @@ RSpec.describe UpdateMovie::Action do
 
     let(:movie) { create(:movie, title: 'The Notebook', genre: 'Drama', year: 2004) }
 
-    it 'updates the movie object' do
-      expect { subject }.to change(movie, :updated_at)
-    end
+    # it 'updates the movie object' do
+    #   expect { subject }.to change(movie, :updated_at)
+    # end
+    include_examples 'successfully updates movie object'
 
     it 'updates the movie object with the new attributes from the response' do
       subject
