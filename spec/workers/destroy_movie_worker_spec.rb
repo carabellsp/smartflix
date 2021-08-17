@@ -15,7 +15,7 @@ RSpec.describe DestroyMovieWorker do
     end
 
     it 'does not call the DestroyMovie::EntryPoint' do
-      expect(DestroyMovie::EntryPoint).to_not receive(:new)
+      expect(DestroyMovie::EntryPoint).not_to receive(:new)
 
       subject.perform
     end

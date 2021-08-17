@@ -9,5 +9,4 @@ RSpec.describe DestroyMovie::EntryPoint do
   let!(:movie) { create(:movie) }
 
   include_examples 'successfully deletes movie object'
-
 end
