@@ -30,8 +30,6 @@ Things you may want to cover:
   -> test for calling entry point etc
 - Test failing in `spec/units/update_movie/action_spec.rb` 
   -> timing issue?
-- specs for `api_adapter.rb` 
-  -> [written but need to get working!! config issues?!]
   
 - secure API key (think this is already done by placing it in env file and having `.env` in `gitignore`?) 
   -> NEED TO CHECK
