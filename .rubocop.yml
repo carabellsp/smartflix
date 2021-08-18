@@ -62,6 +62,11 @@ RSpec/ContextWording:
     - if
     - and
 
+  RSpec/NamedSubject:
+    Enabled: false
+
+  RSpec/MessageSpies:
+    Enabled: false
+
   RSpec/ExampleLength:
-    Exclude:
-      - 'spec/workers/movie_worker_spec.rb'
+    Enabled: false
