@@ -1,0 +1,61 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://www.omdbapi.com/?apikey=43134cfe&t=Home%20Alone
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 18 Aug 2021 09:11:20 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - public, max-age=86400
+      Expires:
+      - Wed, 18 Aug 2021 10:11:20 GMT
+      Last-Modified:
+      - Wed, 18 Aug 2021 09:11:20 GMT
+      Vary:
+      - "*, Accept-Encoding"
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Powered-By:
+      - ASP.NET
+      Access-Control-Allow-Origin:
+      - "*"
+      Cf-Cache-Status:
+      - MISS
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 680a03a17b664084-LHR
+    body:
+      encoding: ASCII-8BIT
+      string: '{"Title":"Home Alone","Year":"1990","Rated":"PG","Released":"16 Nov
+        1990","Runtime":"103 min","Genre":"Comedy, Family","Director":"Chris Columbus","Writer":"John
+        Hughes","Actors":"Macaulay Culkin, Joe Pesci, Daniel Stern","Plot":"An eight-year-old
+        troublemaker must protect his house from a pair of burglars when he is accidentally
+        left home alone by his family during Christmas vacation.","Language":"English","Country":"United
+        States","Awards":"Nominated for 2 Oscars. 11 wins & 6 nominations total","Poster":"https://m.media-amazon.com/images/M/MV5BMzFkM2YwOTQtYzk2Mi00N2VlLWE3NTItN2YwNDg1YmY0ZDNmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg","Ratings":[{"Source":"Internet
+        Movie Database","Value":"7.6/10"},{"Source":"Rotten Tomatoes","Value":"67%"},{"Source":"Metacritic","Value":"63/100"}],"Metascore":"63","imdbRating":"7.6","imdbVotes":"503,008","imdbID":"tt0099785","Type":"movie","DVD":"25
+        Nov 2015","BoxOffice":"$285,761,243","Production":"20th Century Fox, Hughes
+        Entertainment","Website":"N/A","Response":"True"}'
+  recorded_at: Wed, 18 Aug 2021 09:11:20 GMT
+recorded_with: VCR 6.0.0
