@@ -21,7 +21,7 @@ RSpec.describe UpdateMovieWorker do
     end
 
     before do
-      allow(subject).to receive(:omdb_adapter).and_return(dummy_omdb_adapter)
+      allow(Omdb::ApiAdapter).to receive(:new).and_return(dummy_omdb_adapter) # mocking the dependency not mocking the private method like before
       allow(dummy_omdb_adapter).to receive(:fetch_response).and_return(response)
       allow(response).to receive(:parsed_response).and_return(response_body)
     end
@@ -30,25 +30,5 @@ RSpec.describe UpdateMovieWorker do
       subject.perform
       expect(movie.reload).to have_attributes(runtime: 123, year: 2004, language: 'English', genre: 'Drama, Romance')
     end
-
-    it 'calls the UpdateMovie::EntryPoint' do
-      expect(UpdateMovie::EntryPoint).to receive(:new)
-
-      subject.perform
-    end
   end
-
-  # context 'testing memoization of omdb adapter' do
-  #
-  #   before do
-  #     allow(Omdb::ApiAdapter).to receive(:new)
-  #   end
-  #
-  #
-  #   it 'uses memoization in subsequent calls to Omdb::ApiAdapter' do
-  #     expect(Omdb::ApiAdapter).to receive(:new).once.and_call_original
-  #
-  #     subject.perform
-  #   end
-  # end
 end
