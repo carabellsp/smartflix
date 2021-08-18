@@ -14,7 +14,6 @@ RSpec.describe UpdateMovieWorker do
       'Released' => 'Fri, 25 Jun 2004',
       'Genre' => 'Drama, Romance',
       'Director' => 'Nick Cassavetes',
-      'Actors' => 'Rachel McAdams, Ryan Gosling',
       'Plot' => 'A poor yet passionate young man falls in love with a rich young woman, giving her a        sense of freedom, but they are soon separated because of their social differences',
       'Language' => 'English',
       'Runtime' => 123 }

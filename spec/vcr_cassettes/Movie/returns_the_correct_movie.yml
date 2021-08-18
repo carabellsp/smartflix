@@ -1,0 +1,60 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://www.omdbapi.com/?apikey=43134cfe&t=Scarface
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 18 Aug 2021 10:54:56 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - public, max-age=86400
+      Expires:
+      - Wed, 18 Aug 2021 11:54:56 GMT
+      Last-Modified:
+      - Wed, 18 Aug 2021 10:54:56 GMT
+      Vary:
+      - "*, Accept-Encoding"
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Powered-By:
+      - ASP.NET
+      Access-Control-Allow-Origin:
+      - "*"
+      Cf-Cache-Status:
+      - MISS
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 680a9b606b0bf3fb-LHR
+    body:
+      encoding: ASCII-8BIT
+      string: '{"Title":"Scarface","Year":"1983","Rated":"R","Released":"09 Dec 1983","Runtime":"170
+        min","Genre":"Crime, Drama","Director":"Brian De Palma","Writer":"Oliver Stone,
+        Howard Hawks, Ben Hecht","Actors":"Al Pacino, Michelle Pfeiffer, Steven Bauer","Plot":"In
+        1980 Miami, a determined Cuban immigrant takes over a drug cartel and succumbs
+        to greed.","Language":"English, Spanish","Country":"United States","Awards":"8
+        nominations","Poster":"https://m.media-amazon.com/images/M/MV5BNjdjNGQ4NDEtNTEwYS00MTgxLTliYzQtYzE2ZDRiZjFhZmNlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg","Ratings":[{"Source":"Internet
+        Movie Database","Value":"8.3/10"},{"Source":"Rotten Tomatoes","Value":"82%"},{"Source":"Metacritic","Value":"65/100"}],"Metascore":"65","imdbRating":"8.3","imdbVotes":"770,170","imdbID":"tt0086250","Type":"movie","DVD":"15
+        Jun 2012","BoxOffice":"$45,408,703","Production":"Universal Pictures","Website":"N/A","Response":"True"}'
+  recorded_at: Wed, 18 Aug 2021 10:54:56 GMT
+recorded_with: VCR 6.0.0
