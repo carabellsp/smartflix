@@ -21,9 +21,6 @@ RSpec.describe UpdateMovie::Action do
 
     let(:movie) { create(:movie, title: 'The Notebook', genre: 'Drama', year: 2004) }
 
-    # it 'updates the movie object' do
-    #   expect { subject }.to change(movie, :updated_at)
-    # end
     include_examples 'successfully updates movie object'
 
     it 'updates the movie object with the new attributes from the response' do
@@ -37,7 +34,7 @@ RSpec.describe UpdateMovie::Action do
       { 'Title' => 'The Notebook', 'Year' => 2004, 'Genre' => 'Drama' }
     end
 
-    let(:movie) { create(:movie, title: 'The Notebook', genre: 'Drama') }
+    let(:movie) { create(:movie, title: 'The Notebook', year: 2004, genre: 'Drama') }
 
     it ' does not update the movie object' do
       expect { subject }.not_to change(movie, :updated_at)
@@ -45,7 +42,7 @@ RSpec.describe UpdateMovie::Action do
 
     it 'does not change the movie attributes' do
       subject
-      expect(movie.reload).to have_attributes(title: 'The Notebook', genre: 'Drama')
+      expect(movie.reload).to have_attributes(title: 'The Notebook', genre: 'Drama', year: 2004)
     end
   end
 end
