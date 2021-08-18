@@ -5,6 +5,7 @@ require 'rails_helper'
 RSpec.describe Omdb::ApiAdapter do
   context 'when title is provided' do
     subject { described_class.new }
+
     let(:title) { 'Shrek' }
 
     it 'makes a request and returns the correct HTTP response' do

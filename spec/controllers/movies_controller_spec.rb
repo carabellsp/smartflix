@@ -22,9 +22,8 @@ RSpec.describe MoviesController do
         get :show, params: { title: 'Smartflixxxxxx' }
 
         expect(response).to have_http_status(:not_found)
-                              # .and http_error('We do not yet have this movie :(')
+        # .and http_error('We do not yet have this movie :(')
       end
     end
   end
 end
-
