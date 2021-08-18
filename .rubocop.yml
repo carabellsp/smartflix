@@ -1,6 +1,8 @@
-require: rubocop-rspec
+require:
+  - rubocop-rspec
 
 AllCops:
+  TargetRubyVersion: 2.7
   Exclude:
     - 'config/**/*'
     - 'storage/**/*'
@@ -12,42 +14,11 @@ AllCops:
 Layout/EmptyLinesAroundClassBody:
   EnforcedStyle: no_empty_lines
 
-
-Metrics/AbcSize:
-  Max: 36
-  Exclude:
-    - 'app/workers/*'
-
-
 Metrics/BlockLength:
   Max: 40
-  Exclude:
-    - 'spec/**/*'
-
-Metrics/MethodLength:
-  Max: 6
-  Exclude:
-    - 'app/controllers/movies_controller.rb'
-    - 'app/workers/movie_worker.rb'
-    - 'db/migrate/20210617112047_add_columns_to_movies.rb'
-
 
 Style/Documentation:
-  Exclude:
-    - 'spec/**/*'
-    - 'test/**/*'
-    - 'app/controllers/movies_controller.rb'
-    - 'app/helpers/application_helper.rb'
-    - 'app/models/application_record.rb'
-    - 'app/workers/movie_worker.rb'
-    - 'config/application.rb'
-    - 'db/migrate/20210528122342_create_movies.rb'
-    - 'db/migrate/20210617112047_add_columns_to_movies.rb'
-    - 'db/migrate/20210617122232_create_actors.rb'
-    - 'db/migrate/20210617124120_add_actor_to_credits.rb'
-    - 'db/migrate/20210617124129_add_movie_to_credits.rb'
-    - 'db/migrate/20210617124339_drop_credits.rb'
-    - 'db/migrate/20210617124615_create_credits.rb'
+  Enabled: false
 
 Layout/LineLength:
   Max: 120
@@ -62,11 +33,17 @@ RSpec/ContextWording:
     - if
     - and
 
-  RSpec/NamedSubject:
-    Enabled: false
+RSpec/NamedSubject:
+  Enabled: false
 
-  RSpec/MessageSpies:
-    Enabled: false
+RSpec/MessageSpies:
+  Enabled: false
 
-  RSpec/ExampleLength:
-    Enabled: false
+RSpec/ExampleLength:
+  Enabled: false
+
+RSpec/MultipleExpectations:
+  Enabled: false
+
+RSpec/SubjectStub:
+  Enabled: false

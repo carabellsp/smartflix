@@ -29,7 +29,8 @@ RSpec.describe CreateMovie::Action do
     end
 
     it 'adds the movie with the correct attributes' do
-      expect(subject).to have_attributes(title: 'The Notebook', year: 2004, released: 'Fri, 25 Jun 2004'.to_datetime, genre: 'Drama, Romance', language: 'English', runtime: 123)
+      expect(subject).to have_attributes(title: 'The Notebook', year: 2004, released: 'Fri, 25 Jun 2004'.to_datetime,
+                                         genre: 'Drama, Romance', language: 'English', runtime: 123)
     end
   end
 

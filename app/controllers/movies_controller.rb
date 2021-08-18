@@ -11,7 +11,7 @@ class MoviesController < ApplicationController
     else
       add_movie(title)
       render json: { error: 'We do not yet have this movie :(' }.to_json,
-             status: 404
+             status: :not_found
     end
   end
 
