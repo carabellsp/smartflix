@@ -30,12 +30,10 @@ Things you may want to cover:
 - secure API key (think this is already done by placing it in env file and having `.env` in `gitignore`?) 
   -> NEED TO CHECK
 - set up different API key for test env
-  -> not sure how to do this ?? 
-- Write tests for missing part of the flow & check using `simplecov`
+  -> not sure how to do this ??
 
 - add error message for when movie already exists (currently validationerror `title is already taken`)
 - write proper README
 - finish building movie factory
-- Correct rubocop errors
 - Tidy up units, inherit from a base?
 - DRY code
