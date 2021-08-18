@@ -26,11 +26,7 @@ Things you may want to cover:
 --------
 
 ### STILL TO DO:
-- Fix `create_movie_worker_spec.rb` and fatten out tests
-  -> test for calling entry point etc
-- Test failing in `spec/units/update_movie/action_spec.rb` 
-  -> timing issue?
-  
+
 - secure API key (think this is already done by placing it in env file and having `.env` in `gitignore`?) 
   -> NEED TO CHECK
 - set up different API key for test env
