@@ -45,4 +45,15 @@ RSpec.describe UpdateMovie::Action do
       expect(movie.reload).to have_attributes(title: 'The Notebook', genre: 'Drama', year: 2004)
     end
   end
+
+  context 'when the response is invalid' do
+    let(:response_body) { '{"Response":"False"}' }
+    let(:movie) { nil }
+
+    it 'logs a Rails warning with timestamp' do
+      travel_to Time.zone.local(2021)
+      expect(Rails.logger).to receive(:warn).with('The request at 2021-01-01 00:00:00 UTC has returned an error in the response')
+      subject
+    end
+  end
 end

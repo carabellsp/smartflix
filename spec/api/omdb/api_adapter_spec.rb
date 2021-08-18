@@ -30,4 +30,14 @@ RSpec.describe Omdb::ApiAdapter do
       end
     end
   end
+
+  describe '#movie_title' do
+    subject { described_class.new.movie_title }
+
+    it 'generates a random movie title' do
+      allow(Faker::Movie).to receive(:title).and_return('Inception')
+
+      expect(subject).to eq('Inception')
+    end
+  end
 end
