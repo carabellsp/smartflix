@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
+require_relative '../unit_shared_examples'
 
 RSpec.describe CreateMovie::Action do
   subject { described_class.new.call(response) }
@@ -41,10 +42,6 @@ RSpec.describe CreateMovie::Action do
       expect { subject }.not_to change(Movie, :count)
     end
 
-    it 'logs a Rails warning with timestamp' do
-      travel_to Time.zone.local(2021)
-      expect(Rails.logger).to receive(:warn).with('The request at 2021-01-01 00:00:00 UTC has returned an error in the response')
-      subject
-    end
+    include_examples 'successfully logs timestamped warning'
   end
 end

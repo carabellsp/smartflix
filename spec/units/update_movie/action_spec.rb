@@ -2,6 +2,7 @@
 
 require 'rails_helper'
 require_relative 'update_movie_shared_examples'
+require_relative '../unit_shared_examples'
 
 RSpec.describe UpdateMovie::Action do
   subject { described_class.new.call(response, movie) }
@@ -50,10 +51,6 @@ RSpec.describe UpdateMovie::Action do
     let(:response_body) { '{"Response":"False"}' }
     let(:movie) { nil }
 
-    it 'logs a Rails warning with timestamp' do
-      travel_to Time.zone.local(2021)
-      expect(Rails.logger).to receive(:warn).with('The request at 2021-01-01 00:00:00 UTC has returned an error in the response')
-      subject
-    end
+    include_examples 'successfully logs timestamped warning'
   end
 end
