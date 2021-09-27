@@ -49,7 +49,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'rack-mini-profiler', '~> 2.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'factory_bot_rails'
+  gem 'factory_bot_rails' # good to use this within development group too because it auto-generates factory files etc
   gem 'rspec-rails', '~> 5.0.0'
   gem 'spring'
 end
@@ -67,7 +67,6 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'database_cleaner-active_record'
-  gem 'factory_bot', '~> 6.2.0'
   gem 'simplecov', require: false
   gem 'vcr', '~> 6.0.0'
   gem 'webdrivers'
