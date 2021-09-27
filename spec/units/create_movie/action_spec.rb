@@ -41,6 +41,6 @@ RSpec.describe CreateMovie::Action do
       expect { subject }.not_to change(Movie, :count)
     end
 
-    include_examples 'successfully logs timestamped warning'
+    it_behaves_like 'successfully logs timestamped warning'
   end
 end
