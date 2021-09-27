@@ -8,12 +8,14 @@ module CreateMovie
     private_constant :EXCLUDED_ATTRIBUTES
 
     def call(response)
-      if response_valid?(response)
-        movie_attributes = transform_movie_attributes(response.parsed_response)
+      ActiveRecord::Base.transaction do
+        if response_valid?(response)
+          movie_attributes = transform_movie_attributes(response.parsed_response)
 
-        create_movie(movie_attributes).tap { |movie| create_actors(movie, movie_attributes) }
-      else
-        log_error
+          create_movie(movie_attributes).tap { |movie| create_actors(movie, movie_attributes) }
+        else
+          log_error
+        end
       end
     end
 
@@ -46,15 +48,12 @@ module CreateMovie
 
     def create_actors(movie, movie_attributes)
       movie_attributes[:actors].split(', ').each do |actor_name|
-        ActiveRecord::Base.transaction do
-          # wrapped the create methods in a transaction to ensure it rolls back if not fully completing
-          new_actor = Actor.find_or_create_by(full_name: actor_name) do |actor|
-            # use this find_or_create_by method to avoid duplicate actor creation
-            actor.first_name = actor_name.split[0]
-            actor.last_name = actor_name.split[-1]
-          end
-          new_actor.credits.create!(movie: movie)
+        new_actor = Actor.find_or_create_by(full_name: actor_name) do |actor|
+          # use this find_or_create_by method to avoid duplicate actor creation
+          actor.first_name = actor_name.split[0]
+          actor.last_name = actor_name.split[-1]
         end
+        new_actor.credits.create!(movie: movie)
       end
     end
   end
