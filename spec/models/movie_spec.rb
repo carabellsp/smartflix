@@ -2,14 +2,23 @@
 
 require 'rails_helper'
 
-describe Movie, :vcr do
-  let(:movie) { HTTParty.get("http://www.omdbapi.com/?apikey=#{ENV['OMDB_API_KEY']}&t=#{title}") }
-  let(:title) { 'Scarface' }
+RSpec.describe Movie, type: :model do
+  describe 'scopes' do
+    describe '.outdated' do
+      subject { described_class.outdated }
 
-  it 'returns the correct movie' do
-    expect(movie['Title']).to eq('Scarface')
-    expect(movie['Year']).to eq('1983')
-    expect(movie['Director']).to eq('Brian De Palma')
-    expect(movie['Actors']).to include('Al Pacino')
+      let(:movie_1) { create(:movie, updated_at: 2.days.ago) }
+      let(:movie_2) { create(:movie, updated_at: 2.days.ago - 1.minute) }
+      let(:movie_3) { create(:movie, updated_at: 2.days.ago + 1.minute) }
+      let(:movies) { [movie_1, movie_2, movie_3] }
+
+      it do
+        freeze_time do
+          movies
+
+          expect(subject).to eq([movie_2])
+        end
+      end
+    end
   end
 end
