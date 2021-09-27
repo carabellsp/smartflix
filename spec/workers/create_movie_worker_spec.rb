@@ -10,7 +10,7 @@ RSpec.describe CreateMovieWorker, :vcr do
 
   Sidekiq::Testing.inline!
 
-  it 'adds a movie', :vcr, :aggregate_failures do
+  it 'adds a movie', :vcr do
     expect { subject.perform(movie) }.to change(Movie, :count).by(1)
   end
 
