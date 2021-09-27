@@ -8,11 +8,10 @@ class DestroyMovieWorker
   sidekiq_options queue: :movies, retry: false
 
   def perform
-    movies = Movie.where('updated_at < ?', 48.hours.ago)
-    movies.each do |movie|
-      DestroyMovie::EntryPoint.new(movie)
-    end
+    movies = Movie.outdated
+    movies.destroy_all
   end
 end
+
 
 # https://stackoverflow.com/questions/23563439/how-to-find-record-depending-upon-the-updated-at-in-rails

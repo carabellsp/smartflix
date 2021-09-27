@@ -5,4 +5,7 @@ class Movie < ApplicationRecord
 
   has_many :credits
   has_many :actors, through: :credits
+
+  scope :outdated, -> { where('updated_at < ?', 48.hours.ago) }
+
 end
