@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
-require_relative '../unit_shared_examples'
 
 RSpec.describe CreateMovie::Action do
   subject { described_class.new.call(response) }

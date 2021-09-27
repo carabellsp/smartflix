@@ -2,7 +2,6 @@
 
 require 'rails_helper'
 require_relative 'update_movie_shared_examples'
-require_relative '../unit_shared_examples'
 
 RSpec.describe UpdateMovie::Action do
   subject { described_class.new.call(response, movie) }
