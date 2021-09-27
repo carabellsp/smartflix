@@ -30,12 +30,6 @@ RSpec.describe DestroyMovieWorker do
       create(:movie, title: 'The Notebook', updated_at: 72.hours.ago)
     end
 
-    it 'calls DestroyMovie::EntryPoint' do
-      expect(DestroyMovie::EntryPoint).to receive(:new)
-
-      subject.perform
-    end
-
     it 'deletes the movie from the database' do
       expect { subject.perform }.to change(Movie, :count).by(-1)
     end
