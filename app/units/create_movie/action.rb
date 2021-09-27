@@ -20,7 +20,7 @@ module CreateMovie
     private
 
     def response_valid?(response)
-      !response.body.include?('False')
+      response.body.include?('True')
     end
 
     def log_error
