@@ -7,7 +7,6 @@ class CreateMovieWorker
   sidekiq_options retry: false, queue: 'movies'
 
   def perform(title)
-    return if Movie.find_by(title: title) # we do not want to generate multiple instances of the same movie
 
     response = omdb_adapter.fetch_response(title)
     CreateMovie::EntryPoint.new(response)
