@@ -27,13 +27,8 @@ Things you may want to cover:
 
 ### STILL TO DO:
 
-- secure API key (think this is already done by placing it in env file and having `.env` in `gitignore`?) 
-  -> NEED TO CHECK
-- set up different API key for test env
-  -> not sure how to do this ??
-
 - add error message for when movie already exists (currently validationerror `title is already taken`)
 - write proper README
 - finish building movie factory
-- Tidy up units, inherit from a base?
+- Tidy up units, inherit from a base? (dependency inject over inheritance? i.e. a module we `include` as opposed to inherit)
 - DRY code
