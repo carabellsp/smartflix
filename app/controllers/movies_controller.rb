@@ -13,6 +13,8 @@ class MoviesController < ApplicationController
     end
   end
 
+  private
+
   def find_movie_by_title
     Movie.find_by(title: params[:title])
   end
