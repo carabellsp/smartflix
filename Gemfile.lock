@@ -324,7 +324,6 @@ DEPENDENCIES
   capybara (>= 3.26)
   database_cleaner-active_record
   dotenv-rails
-  factory_bot (~> 6.2.0)
   factory_bot_rails
   faker
   httparty

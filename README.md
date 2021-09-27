@@ -32,3 +32,4 @@ Things you may want to cover:
 - finish building movie factory
 - Tidy up units, inherit from a base? (dependency inject over inheritance? i.e. a module we `include` as opposed to inherit)
 - DRY code
+- fix destroymovieworker bug where movie won't delete due to FK constraint w credits
