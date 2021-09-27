@@ -13,6 +13,8 @@ module Omdb
       HTTParty.get(uri)
     end
 
+    private
+
     def movie_title
       Faker::Movie.title
     end
