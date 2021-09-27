@@ -9,8 +9,7 @@ class UpdateMovieWorker
   sidekiq_options retry: false, queue: 'movies'
 
   def perform
-    movies = Movie.all
-    movies.each do |movie|
+    Movie.find_each do |movie|
       response = omdb_adapter.fetch_response(movie.title)
       UpdateMovie::EntryPoint.new(response, movie)
     end
