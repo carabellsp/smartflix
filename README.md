@@ -27,7 +27,7 @@ Things you may want to cover:
 
 ### STILL TO DO:
 
-- add error message for when movie already exists (currently validationerror `title is already taken`)
+- add error message for when movie already exists (currently ValidationError `title is already taken`)
 - write proper README
 - finish building movie factory
 - Tidy up units, inherit from a base? (dependency inject over inheritance? i.e. a module we `include` as opposed to inherit)
