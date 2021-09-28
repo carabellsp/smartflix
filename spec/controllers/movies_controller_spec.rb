@@ -17,11 +17,11 @@ RSpec.describe MoviesController do
 
     context 'when movie is not in the database' do
       it 'returns an error' do
+        expect(CreateMovieWorker).to receive(:perform_async)
 
         get :show, params: { title: 'Smartflixxxxxx' }
 
         expect(response).to have_http_status(:not_found)
-        # .and http_error('We do not yet have this movie :(')
       end
     end
   end
