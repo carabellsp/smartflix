@@ -21,4 +21,11 @@ RSpec.describe Movie, type: :model do
       end
     end
   end
+
+  context 'is only valid with correct attributes' do
+    it 'is not valid without a title' do
+      subject.title = nil
+      expect(subject).not_to be_valid
+    end
+  end
 end
