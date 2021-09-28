@@ -7,4 +7,3 @@ RSpec.shared_examples 'successfully logs timestamped warning' do
     subject
   end
 end
-

@@ -13,5 +13,4 @@ class DestroyMovieWorker
   end
 end
 
-
 # https://stackoverflow.com/questions/23563439/how-to-find-record-depending-upon-the-updated-at-in-rails

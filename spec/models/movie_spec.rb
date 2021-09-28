@@ -7,22 +7,22 @@ RSpec.describe Movie, type: :model do
     describe '.outdated' do
       subject { described_class.outdated }
 
-      let(:movie_1) { create(:movie, updated_at: 2.days.ago) }
-      let(:movie_2) { create(:movie, updated_at: 2.days.ago - 1.minute) }
-      let(:movie_3) { create(:movie, updated_at: 2.days.ago + 1.minute) }
-      let(:movies) { [movie_1, movie_2, movie_3] }
+      let(:movie1) { create(:movie, updated_at: 2.days.ago) }
+      let(:movie2) { create(:movie, updated_at: 2.days.ago - 1.minute) }
+      let(:movie3) { create(:movie, updated_at: 2.days.ago + 1.minute) }
+      let(:movies) { [movie1, movie2, movie3] }
 
       it do
         freeze_time do
           movies
 
-          expect(subject).to eq([movie_2])
+          expect(subject).to eq([movie2])
         end
       end
     end
   end
 
-  context 'is only valid with correct attributes' do
+  context 'with correct attributes, movie is valid' do
     it 'is not valid without a title' do
       subject.title = nil
       expect(subject).not_to be_valid

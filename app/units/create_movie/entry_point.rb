@@ -3,7 +3,6 @@
 module CreateMovie
   # Calls action which creates movie instance from OMDB response
   class EntryPoint
-
     include ::BaseEntryPoint
 
     def initialize

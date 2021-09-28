@@ -3,7 +3,6 @@
 module UpdateMovie
   # Calls action which updates movie instance from OMDB response
   class EntryPoint
-
     include ::BaseEntryPoint
 
     def initialize

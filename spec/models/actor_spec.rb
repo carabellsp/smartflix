@@ -9,7 +9,6 @@ RSpec.describe Actor, type: :model do
                         last_name: 'Bell')
   end
 
-
   it 'is valid with valid attributes' do
     expect(subject).to be_valid
   end

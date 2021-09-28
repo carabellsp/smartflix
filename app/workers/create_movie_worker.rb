@@ -7,7 +7,6 @@ class CreateMovieWorker
   sidekiq_options retry: false, queue: 'movies'
 
   def perform(title)
-
     response = omdb_adapter.fetch_response(title)
     CreateMovie::EntryPoint.new.call(response)
   end

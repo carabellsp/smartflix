@@ -3,7 +3,6 @@
 module CreateMovie
   # Service to create movie instance from OMDB response
   class Action
-
     EXCLUDED_ATTRIBUTES = %i[rated awards poster country ratings writer type dvd boxoffice production
                              metascore response imdbrating imdbvotes imdbid website].freeze
     private_constant :EXCLUDED_ATTRIBUTES
