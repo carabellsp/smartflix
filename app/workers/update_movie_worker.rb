@@ -11,7 +11,7 @@ class UpdateMovieWorker
   def perform
     Movie.find_each do |movie|
       response = omdb_adapter.fetch_response(movie.title)
-      UpdateMovie::EntryPoint.new(response, movie)
+      UpdateMovie::EntryPoint.new.call(response, movie)
     end
   end
 
