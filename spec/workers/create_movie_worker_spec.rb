@@ -13,10 +13,4 @@ RSpec.describe CreateMovieWorker, :vcr do
   it 'adds a movie', :vcr do
     expect { subject.perform(movie) }.to change(Movie, :count).by(1)
   end
-
-  it 'calls CreateMovie::EntryPoint' do
-    expect(CreateMovie::EntryPoint).to receive(:new)
-
-    subject.perform(movie)
-  end
 end
