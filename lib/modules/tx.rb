@@ -3,7 +3,7 @@
 module Tx
   include ActiveSupport::Configurable
 
-  def tx
+  def self.tx
     ActiveRecord::Base.transaction
   end
 end

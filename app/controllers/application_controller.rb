@@ -2,5 +2,5 @@
 
 class ApplicationController < ActionController::Base
 
-  # include Tx
+  include Tx
 end
