@@ -2,5 +2,4 @@
 
 class ApplicationController < ActionController::Base
 
-  include Tx
 end
